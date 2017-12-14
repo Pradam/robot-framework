@@ -1,0 +1,19 @@
+${url}=    Get Element Attribute   xpath=//a[contains(text(),'Download selected certificate')]@href
+
+//*[contains(text(), "example")]
+
+
+Input Text    id=identifierId    ${myself}
+Click Element    //span[@class="RveJvd snByac"]
+${password} =    Search Key
+sleep    ${Delay}
+Input Password    name=password    ${password}
+Click Element    //span[@class="RveJvd snByac"]
+
+
+${xpath}=    Set Variable    //div[@id='groupContainer']//li[@class='contactNameItemContainer']//span
+${count}=    Get Matching Xpath Count    ${xpath}
+${names}=    Create List
+:FOR    ${i}    IN RANGE    1    ${count} + 1
+\    ${name}=    Get Text    xpath=(${xpath})[${i}]
+\    Append To List    ${names}    ${name}
