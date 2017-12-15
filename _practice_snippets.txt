@@ -22,3 +22,15 @@ ${names}=    Create List
 
 Wait Until Element Is Visible   xpath=//*[@id="menu"]/div/div[5]/div/div/div[2]/ul/li[2]/a      10
 Click Element    xpath=//*[@id="menu"]/div/div[5]/div/div/div[2]/ul/li[2]/a
+
+
+Open Login Page
+    Open Browser    ${LINK}    ${BROWSER}
+    Maximize Browser Window
+    Input Text    name=username    pradam
+    Input Password    name=password    pradam@21
+    Wait Until Element Is Visible    //button[@class="button-submit"]
+    Click Button    //button[@class="button-submit"]
+    Wait Until Element Is Visible    //input[@type='radio' and @name='level']    10
+    Select Radio Button    group_name=level    value=admin_level
+    Click Button    //button[@class="button-listing"]
