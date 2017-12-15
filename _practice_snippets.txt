@@ -17,3 +17,8 @@ ${names}=    Create List
 :FOR    ${i}    IN RANGE    1    ${count} + 1
 \    ${name}=    Get Text    xpath=(${xpath})[${i}]
 \    Append To List    ${names}    ${name}
+
+
+
+Wait Until Element Is Visible   xpath=//*[@id="menu"]/div/div[5]/div/div/div[2]/ul/li[2]/a      10
+Click Element    xpath=//*[@id="menu"]/div/div[5]/div/div/div[2]/ul/li[2]/a
